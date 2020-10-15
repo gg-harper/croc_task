@@ -1,30 +1,24 @@
 package production;
 
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.io.*;
 
 public class Storage {
     private String fileName;
-    private FileOutputStream outputStream;
 
     public Storage(String fileName) {
         this.fileName = fileName;
     }
-     void output(int data) {
-        try {
-             outputStream = new FileOutputStream(fileName, true); //open output stream to file with append option
-            synchronized (outputStream) {
-
-                outputStream.write(data);               // write data to file
-                outputStream.close();                   // close stream
-            }
+    synchronized void output(String data) {
+        try (FileWriter outputStream = new FileWriter(fileName, true)){
+                outputStream.write("Data " + data + " written by " + Thread.currentThread().getName() + "\n");  // write data to file
         }
         catch (FileNotFoundException exc) {
             System.out.println("File not found:" + exc.getMessage());
         }
         catch (IOException e) {
-            System.out.println("Something went terribly wrong... :" + e.getMessage());
+            e.printStackTrace();
         }
+        }
+
     }
-}
+

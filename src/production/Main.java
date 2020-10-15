@@ -5,8 +5,7 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        int counter = 9;
-
+        int counter = 10;
 
         Scanner scanner = new Scanner(System.in);
         try {
@@ -43,6 +42,7 @@ public class Main {
         catch (ArrayIndexOutOfBoundsException e) {
             System.out.println("Wrong format. Use -h option.");
         }
+
 
    }
 }
