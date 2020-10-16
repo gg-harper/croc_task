@@ -3,12 +3,10 @@ package production;
 public class Consumer implements Runnable {   // implements Runnable interface to allow usage of multi-threading
     Product product;
     Storage storage;
-    private volatile int counter;// operation counter, we set it in main
 
-    public Consumer(Product product, Storage storage, int counter) {
+    public Consumer(Product product, Storage storage) {
         this.product = product;
         this.storage = storage;
-        this.counter = counter;
     }
 
     @Override

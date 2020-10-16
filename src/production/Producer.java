@@ -1,14 +1,10 @@
 package production;
 
-import java.util.concurrent.Semaphore;
-
 public class Producer implements Runnable{    // Runnable for multi-threading
     private Product product;
-    private volatile  int counter;
 
-    public Producer(Product product, int counter) {
+    public Producer(Product product) {
         this.product = product;
-        this.counter = counter;
 
     }
     @Override

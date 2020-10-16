@@ -22,8 +22,8 @@ public class Main {
 
                     Product product = new Product();                    // create product object to create and temporary storage data
                     Storage storage = new Storage(args[1]);             //create storage object to write data to file
-                    Producer producer = new Producer(product, counter);
-                    Consumer consumer = new Consumer(product, storage, counter);
+                    Producer producer = new Producer(product);
+                    Consumer consumer = new Consumer(product, storage);
 
                     for (int i = 0; i < producerCount; i++) {
                         new Thread(producer).start();
