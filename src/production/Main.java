@@ -6,6 +6,8 @@ public class Main {
 
     public static void main(String[] args) {
         int counter = 10;
+        Counter productCounter = new Counter(counter);
+        Counter consumeCounter = new Counter(counter);
 
         Scanner scanner = new Scanner(System.in);
         try {
@@ -22,8 +24,8 @@ public class Main {
 
                     Product product = new Product();                    // create product object to create and temporary storage data
                     Storage storage = new Storage(args[1]);             //create storage object to write data to file
-                    Producer producer = new Producer(product, counter);
-                    Consumer consumer = new Consumer(product, storage, counter);
+                    Producer producer = new Producer(product, productCounter);
+                    Consumer consumer = new Consumer(product, storage, consumeCounter);
 
                     for (int i = 0; i < producerCount; i++) {
                         new Thread(producer).start();

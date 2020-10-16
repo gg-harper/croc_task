@@ -4,20 +4,22 @@ import java.util.concurrent.Semaphore;
 
 public class Producer implements Runnable{    // Runnable for multi-threading
     private Product product;
-    private volatile  int counter;
+    private Counter counter;
 
-    public Producer(Product product, int counter) {
+    public Producer(Product product, Counter counter) {
         this.product = product;
+        this.counter = counter;
         this.counter = counter;
 
     }
     @Override
     public void run() {
-        while (true) {
+        while (counter.getCounter() > 0) {
             product.put();// put data to temp storage
-            try {
+            counter.decrementCounter();
+           /* try {
                 Thread.sleep(1000);
-            } catch (InterruptedException e) {}
+            } catch (InterruptedException e) {}*/
         }
 
     }
