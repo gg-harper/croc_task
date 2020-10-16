@@ -17,9 +17,6 @@ public class Producer implements Runnable{    // Runnable for multi-threading
         while (counter.getCounter() > 0) {
             product.put();// put data to temp storage
             counter.decrementCounter();
-           /* try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {}*/
         }
 
     }

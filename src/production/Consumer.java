@@ -15,14 +15,10 @@ public class Consumer implements Runnable {   // implements Runnable interface t
     public void run() {
         String data = "";
         while (counter.getCounter() > 0) {
-           /* try {
-                Thread.sleep(1500);
-            }
-            catch (InterruptedException e) {}*/
+            counter.decrementCounter();
             data = product.get();               // get data from temporary storage of product
             storage.output(data);                    // output data to file
-           // System.out.println(counter.getCounter());
-            counter.decrementCounter();
+
         }
     }
 }

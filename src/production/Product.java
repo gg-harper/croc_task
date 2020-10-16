@@ -11,7 +11,7 @@ public class Product {
     String get() {
         String data = "";
         if(!temporaryStorage.isEmpty()) {
-            data = temporaryStorage.remove();
+            data = temporaryStorage.poll();
         }
         return data;
     }
