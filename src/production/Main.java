@@ -30,6 +30,12 @@ public class Main {
                     for (int i = 0; i < producerCount; i++) {
                         new Thread(producer).start();
                     }
+                    try {
+                        Thread.sleep(1000);
+                    }
+                    catch (Exception e) {
+                        e.printStackTrace();
+                    }
                     for (int i = 0; i < consumerCount; i++) {
                         new Thread(consumer).start();
                     }

@@ -21,7 +21,7 @@ public class Consumer implements Runnable {   // implements Runnable interface t
             catch (InterruptedException e) {}*/
             data = product.get();               // get data from temporary storage of product
             storage.output(data);                    // output data to file
-            System.out.println(counter.getCounter());
+           // System.out.println(counter.getCounter());
             counter.decrementCounter();
         }
     }
